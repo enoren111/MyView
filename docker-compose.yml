@@ -1,12 +1,18 @@
 version: '3.8'
 services:
   backend:
-    build: ./MyViewBackend
+    build:
+      context: ./MyViewBackend
+      args:
+        TEST_MODE: "true" # Set this to "true" to run tests./MyViewBackend
     ports:
       - "5000:80"
+    depends_on:
+      - mongodb
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__MongoDbConnection=mongodb://yourUsername:yourPassword@mongodb:27017/myappdb
 
   frontend:
     build: ./myview-frontend
@@ -14,3 +20,16 @@ services:
       - "3000:80"
     depends_on:
       - backend
+
+  mongodb:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: yourUsername
+      MONGO_INITDB_ROOT_PASSWORD: yourPassword
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
