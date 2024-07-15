@@ -13,6 +13,7 @@ myview-frontend/build
 
 # backend
 MyViewBackend/obj
+MyViewBackend/bin
 
 # misc
 .DS_Store
