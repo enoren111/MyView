@@ -3,8 +3,6 @@ services:
   backend:
     build:
       context: ./MyViewBackend
-      args:
-        TEST_MODE: "true" # Set this to "true" to run tests./MyViewBackend
     ports:
       - "5000:80"
     depends_on:

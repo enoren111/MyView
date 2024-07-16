@@ -15,6 +15,10 @@ myview-frontend/build
 MyViewBackend/obj
 MyViewBackend/bin
 
+#backendtests
+MyViewBackendTests/obj
+MyViewBackendTests/bin
+
 # misc
 .DS_Store
 .env.local
