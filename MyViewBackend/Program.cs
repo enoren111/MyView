@@ -17,9 +17,9 @@ using MyViewBackend.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the DI container.
-var connectionString = builder.Configuration["ConnectionStrings:MongoDbConnection"];
-var dbName = "myappdb"; // You can also move this to appsettings.json if you prefer
-builder.Services.AddSingleton<MongoDbContext>(sp => new MongoDbContext(connectionString, dbName));
+var connectionString = builder.Configuration.GetConnectionString("MongoDb");
+var dbName = builder.Configuration["DatabaseSettings:DatabaseName"];
+builder.Services.AddSingleton(new MongoDbContext(connectionString, dbName));
 builder.Services.AddScoped<UserService>();
 
 builder.Services.AddControllers();
@@ -33,14 +33,14 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+app.UseRouting();
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
-
-
 
 // // Configure the HTTP request pipeline.
 // if (app.Environment.IsDevelopment())

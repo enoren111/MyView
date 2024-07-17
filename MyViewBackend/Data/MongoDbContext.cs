@@ -8,21 +8,25 @@ namespace MyViewBackend.Data
     public class MongoDbContext
     {
         private readonly IMongoDatabase _database;
+        private readonly IMongoClient client;
 
         public MongoDbContext(string connectionString, string dbName)
         {
-            var client = new MongoClient(connectionString);
+            client = new MongoClient(connectionString);
             _database = client.GetDatabase(dbName);
         }
 
-        public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
+        // public MongoDbContext()
+        // {
+        //     client = new MongoClient("mongodb://yourUsername:yourPassword@localhost:27017");
+        //     _database = client.GetDatabase("myviewdb");
+        // }
 
-        // Generic Find method
-        public async Task<User> FindUserById(string id)
+        public IMongoCollection<User> GetCollection(string collectionName)
         {
-            var filter = Builders<User>.Filter.Eq(u => u.Id, id);
-            return await Users.Find(filter).FirstOrDefaultAsync();
+            return _database.GetCollection<User> (collectionName);
         }
+
 
     }
 
