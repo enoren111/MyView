@@ -42,8 +42,6 @@ app.MapControllers();
 
 app.Run();
 
-
-
 // // Configure the HTTP request pipeline.
 // if (app.Environment.IsDevelopment())
 // {

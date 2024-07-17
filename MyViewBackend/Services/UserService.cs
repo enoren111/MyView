@@ -15,13 +15,16 @@ namespace MyViewBackend.Services
 
         public async Task AddUser(User newUser)
         {
-            await _dbContext.Users.InsertOneAsync(newUser);
+            var collection = _dbContext.GetCollection("users");
+            await collection.InsertOneAsync(newUser);
         }
 
-        public async Task<User> GetUser(string id)
-        {
-            return await _dbContext.FindUserById(id);
-        }
+        // public async Task<User> GetUser(string id)
+        // {
+        //     var collection = _dbContext.GetCollection("users");
+        //     var filter = Builders<User>.Filter.Eq("_id", new ObjectId(id));
+        //     return await collection.Find(filter).FirstOrDefaultAsync();
+        // }
 
     }
 }
