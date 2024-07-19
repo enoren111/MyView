@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using MyViewBackend.Data;
 using MyViewBackend.Models;
+using MongoDB.Driver;
 
 namespace MyViewBackend.Services
 {
@@ -19,6 +20,12 @@ namespace MyViewBackend.Services
             await collection.InsertOneAsync(newUser);
         }
 
+        public async Task<User> GetUser(string username)
+        {
+            var collection = _dbContext.GetCollection("users");
+            var filter = Builders<User>.Filter.Eq("Username", username);
+            return await collection.Find(filter).FirstOrDefaultAsync();
+        }
         // public async Task<User> GetUser(string id)
         // {
         //     var collection = _dbContext.GetCollection("users");
