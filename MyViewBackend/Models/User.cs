@@ -11,7 +11,7 @@ namespace MyViewBackend.Models
         public string Email { get; set; }
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        //public string Id { get; set; }
+        public string Id { get; set; }
     }
 }
 
