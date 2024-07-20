@@ -26,6 +26,7 @@ namespace MyViewBackend.Services
             var filter = Builders<User>.Filter.Eq("Username", username);
             return await collection.Find(filter).FirstOrDefaultAsync();
         }
+        
         // public async Task<User> GetUser(string id)
         // {
         //     var collection = _dbContext.GetCollection("users");
