@@ -21,6 +21,7 @@ var connectionString = builder.Configuration.GetConnectionString("MongoDb");
 var dbName = builder.Configuration["DatabaseSettings:DatabaseName"];
 builder.Services.AddSingleton(new MongoDbContext(connectionString, dbName));
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<LoginService>();
 
 builder.Services.AddControllers();
 // Add other services like CORS, Swagger if needed

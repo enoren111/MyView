@@ -15,7 +15,7 @@ namespace MyViewBackend.Controllers
             _loginService = loginService;
         }
 
-        [HttpPost("login")]
+        [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
         {
             var user = await _loginService.ValidateCredentials(loginModel.Username, loginModel.Password);
