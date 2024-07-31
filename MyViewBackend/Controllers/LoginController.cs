@@ -18,22 +18,23 @@ namespace MyViewBackend.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
         {
-            var user = await _loginService.ValidateCredentials(loginModel.Username, loginModel.Password);
-            return Ok(user);
+            try
+            {
+                var user = await _loginService.ValidateCredentials(loginModel.Username, loginModel.Password);
 
-
-            // if (_loginService.ValidateCredentials(loginModel.Username, loginModel.Password))
-            // {
-            //     // Redirect to another page upon successful login
-            //     // Assuming "Home" is the controller and "Index" is the action for the target page
-            //     return Ok("Successful!");
-            // }
-            // else
-            // {
-            //     // Return an error response or view if login fails
-            //     return Ok("Unsuccessful!"); // Or return a specific view with error message
-            // }
+                if (user != null)
+                {
+                    return Ok(user); // 登录成功，返回用户信息
+                }
+                else
+                {
+                    return Unauthorized(new { message = "Invalid username or password" }); // 登录失败，返回401
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while processing your request", details = ex.Message });
+            }
         }
-
     }
 }

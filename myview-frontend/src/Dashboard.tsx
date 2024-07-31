@@ -1,6 +1,7 @@
 import React from 'react';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
+import { useParams } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -13,12 +14,13 @@ const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].
 );
 
 const Dashboard: React.FC = () => {
+  const { username } = useParams<{ username: string }>();
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   return (
-    <Layout>
+    <Layout style={{ minHeight: '100vh' }}> {/* Layout can fill the whole window */}
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
@@ -43,7 +45,7 @@ const Dashboard: React.FC = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            content
+            Welcome, {username}!
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>

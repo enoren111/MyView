@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import './App.css';
 import 'antd/dist/reset.css';
 import { Button, Form, Input, Alert } from 'antd';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
-  const [username,setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     const response = await fetch('http://localhost:5000/login', {
@@ -20,18 +22,24 @@ function Login() {
     if (response.ok) {
       const data = await response.json();
       console.log('Login Success:', data);
-      <Navigate to="/dashboard" replace={true} />
+      navigate(`/dashboard/${username}`, { replace: true });
     } else {
-      <Alert
-      message="Error Text"
-      description="Error Description Error Description Error Description Error Description"
-      type="error"
-    />
+      setError('Login failed. Please check your username and password.');
     }
   };
 
   return (
     <div className="Login">
+      {error && (
+        <Alert
+          message="Error"
+          description={error}
+          type="error"
+          showIcon
+          closable
+          style={{ marginBottom: '20px' }}
+        />
+      )}
       <Form
         name="basic"
         initialValues={{ remember: true }}
@@ -43,17 +51,15 @@ function Login() {
           name="username"
           rules={[{ required: true, message: 'Please input your username!' }]}
         >
-          <Input value={username} onChange={(e) => setUsername(e.target.value)}/>
+          <Input value={username} onChange={(e) => setUsername(e.target.value)} />
         </Form.Item>
-
         <Form.Item
           label="Password"
           name="password"
           rules={[{ required: true, message: 'Please input your password!' }]}
         >
-          <Input.Password value={password} onChange={(e) => setPassword(e.target.value)}/>
+          <Input.Password value={password} onChange={(e) => setPassword(e.target.value)} />
         </Form.Item>
-
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit
