@@ -22,6 +22,8 @@ function Login() {
     if (response.ok) {
       const data = await response.json();
       console.log('Login Success:', data);
+      localStorage.setItem('username', username); //This is the place to store the login status
+      localStorage.setItem('isLoggedIn', 'true'); 
       navigate(`/dashboard/${username}`, { replace: true });
     } else {
       setError('Login failed. Please check your username and password.');
