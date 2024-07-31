@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Login from './Login';
 import Dashboard from './Dashboard';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
 
@@ -10,17 +11,15 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/dashboard/:username" element={<Dashboard />} />
+      <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard/:username" element={<Dashboard />} /> {/* Protect the route */}
+        </Route>
     </Routes>
   </BrowserRouter>
 }
 
 const Home = () => {
   return <div>hello world</div>
-}
-
-const About = () => {
-  return <div>这里是卡拉云的主页</div>
 }
 
 
