@@ -3,7 +3,7 @@ import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/i
 import { Layout, Menu, theme } from 'antd';
 import { useParams } from 'react-router-dom';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
   (icon, index) => ({
@@ -31,8 +31,8 @@ const Dashboard: React.FC = () => {
           console.log(collapsed, type);
         }}
       >
-        <div className="demo-logo-vertical" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+        <div className="naviagtor" />
+        <Menu theme="light" mode="inline" defaultSelectedKeys={['4']} items={items} />
       </Sider>
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }} />
@@ -48,9 +48,6 @@ const Dashboard: React.FC = () => {
             Welcome, {username}!
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
       </Layout>
     </Layout>
   );
