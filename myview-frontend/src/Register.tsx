@@ -25,9 +25,6 @@ const Register: React.FC = () => {
         if (response.ok) {
             const data = await response.json();
             console.log('Register Success:', data);
-            //localStorage.setItem('username', username); // This is the place to store the login status
-            //localStorage.setItem('isLoggedIn', 'true');
-            //navigate(`/dashboard/${username}`, { replace: true });
             alert('Register successful!');
             navigate(`/login`, { replace: true });
         } else {

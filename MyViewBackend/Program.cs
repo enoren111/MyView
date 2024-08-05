@@ -24,7 +24,6 @@ builder.Services.AddCors(options =>
         });
 });
 builder.Services.AddControllers();
-// Add other services like CORS, Swagger if needed
 
 var app = builder.Build();
 
