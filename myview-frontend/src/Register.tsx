@@ -72,7 +72,7 @@ const Register: React.FC = () => {
                                 name="username"
                                 rules={[{ required: true, message: 'Please input your username!' }]}
                             >
-                                <Input placeholder="Please input the name you want to use in community." value={username} onChange={(e) => setUsername(e.target.value)} />
+                                <Input placeholder="Please input your username." value={username} onChange={(e) => setUsername(e.target.value)} />
                             </Form.Item>
                             <Form.Item
                                 name="password"
