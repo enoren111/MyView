@@ -1,21 +1,20 @@
 import React from 'react';
 import { UserOutlined, VideoCameraOutlined, HomeOutlined, SettingOutlined, ShopOutlined } from '@ant-design/icons';
 import { Layout, Menu, theme, Row, Col, Typography, Button, Card, Avatar } from 'antd';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
 
-const items = [
-  { key: '1', icon: React.createElement(HomeOutlined), label: 'Home' },
-  { key: '2', icon: React.createElement(UserOutlined), label: 'Character Panel' },
-  { key: '3', icon: React.createElement(VideoCameraOutlined), label: 'Story Creation' },
-  { key: '4', icon: React.createElement(ShopOutlined), label: 'Community Overview' },
-  { key: '5', icon: React.createElement(SettingOutlined), label: 'Settings' },
-];
-
 const Dashboard: React.FC = () => {
   const { username } = useParams<{ username: string }>();
+  const items = [
+    { key: '1', icon: React.createElement(HomeOutlined), label: <Link to={`/dashboard/${username}`}>Home</Link> },
+    { key: '2', icon: React.createElement(UserOutlined), label: <Link to={`/character-panel/${username}`}>Character Panel</Link> },
+    { key: '3', icon: React.createElement(VideoCameraOutlined), label: <Link to={`/story-creation/${username}`}>Story Creation</Link> },
+    { key: '4', icon: React.createElement(ShopOutlined), label: <Link to={`/community-overview/${username}`}>Community Overview</Link> },
+    { key: '5', icon: React.createElement(SettingOutlined), label: <Link to={`/settings/${username}`}>Settings</Link> },
+];
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
