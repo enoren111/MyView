@@ -81,9 +81,6 @@ const Register: React.FC = () => {
                                 <Input.Password placeholder="Please input your password." value={password} onChange={(e) => setPassword(e.target.value)} />
                             </Form.Item>
                             <Form.Item>
-                                <a href="/forgot-password">Forgot password?</a>
-                            </Form.Item>
-                            <Form.Item>
                                 <Button type="primary" htmlType="submit" style={{ width: '100%', backgroundColor: '#722ed1', borderColor: '#722ed1' }}>
                                     Register
                                 </Button>

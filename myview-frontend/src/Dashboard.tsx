@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserOutlined, VideoCameraOutlined, HomeOutlined, SettingOutlined, ShopOutlined } from '@ant-design/icons';
-import { Layout, Menu, theme,Row, Col, Typography, Button,Card, Avatar } from 'antd';
+import { Layout, Menu, theme, Row, Col, Typography, Button, Card, Avatar } from 'antd';
 import { useParams, Link } from 'react-router-dom';
 
 const { Header, Content, Sider } = Layout;
@@ -33,15 +33,15 @@ const Dashboard: React.FC = () => {
         style={{ background: "white" }}
       >
         <div className="navigator">
-          <div style={{ padding: '16px', fontSize: '24px'}}>{username}</div>
-          <div style={{ padding: '16px', fontSize: '16px'}}>navigator</div>
+          <div style={{ padding: '16px', fontSize: '24px' }}>{username}</div>
+          <div style={{ padding: '16px', fontSize: '16px' }}>navigator</div>
           <Menu theme="light" mode="inline" defaultSelectedKeys={['1']} items={items} />
         </div>
       </Sider>
       <Layout>
         <Header style={{ padding: 0, background: '#fff' }}>
           <Title level={1} style={{ textAlign: 'center' }}>
-                Welcome Back To {username}
+            Welcome Back To {username}'s Home
           </Title>
         </Header>
         <Content style={{ margin: '24px 16px 0' }}>
@@ -53,13 +53,13 @@ const Dashboard: React.FC = () => {
               borderRadius: '8px',
             }}
           >
-            
+
             <Title level={3} style={{ textAlign: 'center' }}>
               Your Team Recent Activities
             </Title>
             <Row gutter={16} style={{ marginTop: '24px' }}>
               <Col span={8}>
-                <Card title="Add X Figure" extra={<Avatar src="https://api.dicebear.com/9.x/pixel-art/svg?seed=Zoe" alt='avatar'/>}>
+                <Card title="Add X Figure" extra={<Avatar src="https://api.dicebear.com/9.x/pixel-art/svg?seed=Zoe" alt='avatar' />}>
                   <p>Name</p>
                   <p>Time</p>
                 </Card>
