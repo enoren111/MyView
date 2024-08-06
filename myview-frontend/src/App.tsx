@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Login from './Login';
 import Register from './Register';
 import Dashboard from './Dashboard';
+import CharacterPanel from './CharacterPanel';
 import ProtectedRoute from './ProtectedRoute';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/dashboard/:username" element={<Dashboard />} /> {/* Protect the route */}
       </Route>
       <Route path="/register" element={<Register />} />
+      <Route path="/dashboard/:username/characterpanel" element={<CharacterPanel />} />
     </Routes>
   </BrowserRouter>
 }
