@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Layout, Menu, Input, Card, Avatar, Button, Row, Col, Typography } from 'antd';
 import { UserOutlined, VideoCameraOutlined, HomeOutlined, SettingOutlined, ShopOutlined } from '@ant-design/icons';
 import { SearchOutlined } from '@ant-design/icons';
-import { useParams } from 'react-router-dom';
+import { useParams, Link as RouterLink} from 'react-router-dom';
 import './App.css'; // Create a CSS file for your styles
 
 
@@ -11,16 +11,22 @@ const { Meta } = Card;
 const { Link } = Typography;
 
 
-const items = [
-    { key: '1', icon: React.createElement(HomeOutlined), label: 'Home' },
-    { key: '2', icon: React.createElement(UserOutlined), label: 'Character Panel' },
-    { key: '3', icon: React.createElement(VideoCameraOutlined), label: 'Story Creation' },
-    { key: '4', icon: React.createElement(ShopOutlined), label: 'Community Overview' },
-    { key: '5', icon: React.createElement(SettingOutlined), label: 'Settings' },
-];
-
 const CharacterPanel: React.FC = () => {
     const { username } = useParams<{ username: string }>();
+    const [selectedKey, setSelectedKey] = useState('2'); // Set initial selected key
+
+    const items = [
+        { key: '1', icon: React.createElement(HomeOutlined), label: <RouterLink to={`/dashboard/${username}`}>Home</RouterLink> },
+        { key: '2', icon: React.createElement(UserOutlined), label: <RouterLink to={`/character-panel/${username}`}>Character Panel</RouterLink> },
+        { key: '3', icon: React.createElement(VideoCameraOutlined), label: <RouterLink to={`/story-creation/${username}`}>Story Creation</RouterLink> },
+        { key: '4', icon: React.createElement(ShopOutlined), label: <RouterLink to={`/community-overview/${username}`}>Community Overview</RouterLink> },
+        { key: '5', icon: React.createElement(SettingOutlined), label: <RouterLink to={`/settings/${username}`}>Settings</RouterLink> },
+    ];
+
+    const handleMenuClick = (e: any) => {
+        setSelectedKey(e.key);
+    };
+
     const luppets = [
         { name: 'Luppet 1', description: 'Description of luppet', img: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Felix' },
         { name: 'Luppet 2', description: 'Description of luppet', img: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Annie' },
@@ -42,7 +48,13 @@ const CharacterPanel: React.FC = () => {
                 <div className="navigator">
                     <div style={{ padding: '16px', fontSize: '24px' }}>{username}</div>
                     <div style={{ padding: '16px', fontSize: '16px' }}>navigator</div>
-                    <Menu theme="light" mode="inline" defaultSelectedKeys={['2']} items={items} />
+                    <Menu
+                        theme="light"
+                        mode="inline"
+                        selectedKeys={[selectedKey]}
+                        onClick={handleMenuClick}
+                        items={items}
+                    />
                 </div>
             </Sider>
             <Layout style={{ padding: '0 24px 24px' }}>

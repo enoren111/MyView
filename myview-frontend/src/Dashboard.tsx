@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { UserOutlined, VideoCameraOutlined, HomeOutlined, SettingOutlined, ShopOutlined } from '@ant-design/icons';
 import { Layout, Menu, theme, Row, Col, Typography, Button, Card, Avatar } from 'antd';
 import { useParams, Link } from 'react-router-dom';
@@ -8,13 +8,20 @@ const { Title } = Typography;
 
 const Dashboard: React.FC = () => {
   const { username } = useParams<{ username: string }>();
+  const [selectedKey, setSelectedKey] = useState('1'); // Set initial selected key
+
   const items = [
     { key: '1', icon: React.createElement(HomeOutlined), label: <Link to={`/dashboard/${username}`}>Home</Link> },
     { key: '2', icon: React.createElement(UserOutlined), label: <Link to={`/character-panel/${username}`}>Character Panel</Link> },
     { key: '3', icon: React.createElement(VideoCameraOutlined), label: <Link to={`/story-creation/${username}`}>Story Creation</Link> },
     { key: '4', icon: React.createElement(ShopOutlined), label: <Link to={`/community-overview/${username}`}>Community Overview</Link> },
     { key: '5', icon: React.createElement(SettingOutlined), label: <Link to={`/settings/${username}`}>Settings</Link> },
-];
+  ];
+
+  const handleMenuClick = (e: any) => {
+    setSelectedKey(e.key);
+  };
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -35,7 +42,11 @@ const Dashboard: React.FC = () => {
         <div className="navigator">
           <div style={{ padding: '16px', fontSize: '24px' }}>{username}</div>
           <div style={{ padding: '16px', fontSize: '16px' }}>navigator</div>
-          <Menu theme="light" mode="inline" defaultSelectedKeys={['1']} items={items} />
+          <Menu theme="light"
+                mode="inline"
+                selectedKeys={[selectedKey]}
+                onClick={handleMenuClick}
+                items={items} />
         </div>
       </Sider>
       <Layout>
