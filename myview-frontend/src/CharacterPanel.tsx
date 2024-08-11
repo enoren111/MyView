@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Layout, Menu, Input, Card, Avatar, Button, Row, Col, Typography } from 'antd';
 import { UserOutlined, VideoCameraOutlined, HomeOutlined, SettingOutlined, ShopOutlined } from '@ant-design/icons';
 import { SearchOutlined } from '@ant-design/icons';
-import { useParams, Link as RouterLink} from 'react-router-dom';
+import { useParams, Link as RouterLink } from 'react-router-dom';
 import './App.css'; // Create a CSS file for your styles
 
 
@@ -18,8 +18,8 @@ const CharacterPanel: React.FC = () => {
     const items = [
         { key: '1', icon: React.createElement(HomeOutlined), label: <RouterLink to={`/dashboard/${username}`}>Home</RouterLink> },
         { key: '2', icon: React.createElement(UserOutlined), label: <RouterLink to={`/character-panel/${username}`}>Character Panel</RouterLink> },
-        { key: '3', icon: React.createElement(VideoCameraOutlined), label: <RouterLink to={`/story-creation/${username}`}>Story Creation</RouterLink> },
-        { key: '4', icon: React.createElement(ShopOutlined), label: <RouterLink to={`/community-overview/${username}`}>Community Overview</RouterLink> },
+        { key: '3', icon: React.createElement(VideoCameraOutlined), label: <RouterLink to={`/story-panel;/${username}`}>Story Panel</RouterLink> },
+        { key: '4', icon: React.createElement(ShopOutlined), label: <RouterLink to={`/community-panel/${username}`}>Community Panel</RouterLink> },
         { key: '5', icon: React.createElement(SettingOutlined), label: <RouterLink to={`/settings/${username}`}>Settings</RouterLink> },
     ];
 
