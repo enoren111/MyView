@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Layout, Menu, Card, Row, Col, Button, Typography, Input, Avatar } from 'antd';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { UserOutlined, VideoCameraOutlined, HomeOutlined, SettingOutlined, ShopOutlined, SearchOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons';
 
 const { Header, Content, Sider } = Layout;
@@ -11,17 +11,22 @@ const { Meta } = Card;
 const Dashboard: React.FC = () => {
     const { username } = useParams<{ username: string }>();
     const [selectedKey, setSelectedKey] = useState('3'); // Set initial selected key
+    const navigate = useNavigate();
 
     const items = [
         { key: '1', icon: React.createElement(HomeOutlined), label: <Link to={`/dashboard/${username}`}>Home</Link> },
         { key: '2', icon: React.createElement(UserOutlined), label: <Link to={`/character-panel/${username}`}>Character Panel</Link> },
-        { key: '3', icon: React.createElement(VideoCameraOutlined), label: <Link to={`/story-creation/${username}`}>Story Creation</Link> },
-        { key: '4', icon: React.createElement(ShopOutlined), label: <Link to={`/community-overview/${username}`}>Community Overview</Link> },
+        { key: '3', icon: React.createElement(VideoCameraOutlined), label: <Link to={`/story-panel/${username}`}>Story Panel</Link> },
+        { key: '4', icon: React.createElement(ShopOutlined), label: <Link to={`/community-panel/${username}`}>Community Panel</Link> },
         { key: '5', icon: React.createElement(SettingOutlined), label: <Link to={`/settings/${username}`}>Settings</Link> },
     ];
 
     const handleMenuClick = (e: any) => {
         setSelectedKey(e.key);
+    };
+
+    const handleChatbotRedirect = () => {
+        navigate(`/story-panel/chatbot/${username}`);  
     };
 
     const onSearch = (value: string) => console.log(value);
@@ -52,7 +57,7 @@ const Dashboard: React.FC = () => {
             <Layout>
                 <Header style={{ padding: '0 16px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <div>
-                        <Title level={2} style={{ margin: 0 }}>Curriculums</Title>
+                        <Title level={2} style={{ margin: 0 }}>Curricula</Title>
                     </div>
                     <Search
                         placeholder="Curriculum Name/Characters"
@@ -164,7 +169,8 @@ const Dashboard: React.FC = () => {
                         </Row>
                         <div style={{ textAlign: 'center', marginTop: '24px' }}>
                             <Title level={4}>Start with a new Topic?</Title>
-                            <Button type="primary">Add</Button>
+                            <Button type="primary">Add it manually</Button>
+                            <Button type="primary" onClick={handleChatbotRedirect}>Start with talking to bot</Button>
                         </div>
                     </div>
                 </Content>

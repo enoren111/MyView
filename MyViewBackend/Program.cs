@@ -13,6 +13,15 @@ builder.Services.AddSingleton(new MongoDbContext(connectionString, dbName));
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<LoginService>();
 
+builder.Services.AddHttpClient<ChatGPTService>(client =>
+        {
+            // Optionally configure the HttpClient here
+        });
+
+builder.Services.AddSingleton(sp => new ChatGPTService(
+    sp.GetRequiredService<HttpClient>()
+));
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins",
