@@ -12,6 +12,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
       - MONGO_CONNECTION_STRING=mongodb://yourUsername:yourPassword@mongodb:27017/myviewdb
+      - GPT_API_KEY=${GPT_API_KEY}
     networks:
       - my_network
 
