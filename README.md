@@ -12,4 +12,6 @@ All the functions will be integrated in our community - **Sesuyu Street**.
 
 # Panels and Functions 🏘️
 
+# Software Structure 💻
+
 
