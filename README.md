@@ -21,7 +21,7 @@ All the functions will be integrated in our community - **Sesayu Street**.
 cd your_local/project_directory
 git clone
 ```
-* Use the following commands to configure your Docker:
+* Use the following commands to bring up the app in your Docker:
 ```
 docker compose up --build -d
 ```
