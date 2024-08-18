@@ -16,6 +16,6 @@ All the functions will be integrated in our community - **Sesayu Street**.
 
 # Environment Setup 🕹️
 
-# Implementation 💡
+# Implementation (Selected) 💡
 
 
