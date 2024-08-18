@@ -26,6 +26,7 @@ git clone
 ```
 docker compose up --build -d
 ```
+* Bring up the Login Page in your browser >http://localhost:3000/login
 
 # Implementation (Selected) 💡
 
