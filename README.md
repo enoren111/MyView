@@ -8,6 +8,6 @@ and virtual LLM based characters (like muppets in the Sesame Street world).
 This software will be implemented in full-stack by calling APIs from LLM. The software will support playing back the scripts
 easily in the different platforms with LLM being used to fill in the parts that humans will play as well to
 help with authoring episodes. 
-This is where our community **Sesayu Street** comes from.
+All the functions will be integrated in our community - **Sesuyu Street**.
 
 
