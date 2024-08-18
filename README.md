@@ -21,7 +21,7 @@ All the functions will be integrated in our community - **Sesayu Street**.
 cd your_local/project_directory
 git clone
 ```
-* Create three containers in your Docker: Frontend, Backend, MongoDB
+* Create three containers in your Docker: Frontend, Backend, MongoDB and connect them under the same network
 * Use the following commands to bring up the app in your Docker:
 ```
 docker compose up --build -d
