@@ -19,7 +19,7 @@ All the functions will be integrated in our community - **Sesayu Street**.
 * Use the following commands to build the project in your VS Code terminal:
 ```
 cd your_local/project_directory
-git clone
+git clone https://github.com/enoren111/MyView.git
 ```
 * Create three containers in your Docker: Frontend, Backend, MongoDB and connect them under the same network
 * Use the following commands to bring up the app in your Docker:
