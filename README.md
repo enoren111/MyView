@@ -15,11 +15,13 @@ All the functions will be integrated in our community - **Sesayu Street**.
 # Software Structure 💻
 
 # Environment Setup 🕹️
-Use the following commands to build the project in your local:
+*Create a empty project in your VS Code
+*Use the following commands to build the project in your VS Code terminal:
 ```
 cd your_local/project_directory
 git clone
 ```
+*
 
 # Implementation (Selected) 💡
 
