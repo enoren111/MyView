@@ -13,6 +13,7 @@ All the functions will be integrated in our community - **Sesayu Street**.
 # Panels and Functions 🏘️
 
 # Software Structure 💻
+<img alt="Structure of the App" src="/Pics/structure.png">
 
 # Environment Setup 🕹️
 * Create a empty project in your VS Code
