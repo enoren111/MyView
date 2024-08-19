@@ -20,6 +20,9 @@ Username and password fields, login button, sign up link
 
 ### Functions
 
+For registered users: to log into the community using unique credentials.
+For un-registered users: to register a new account by clicking the link.
+
 
 
 
