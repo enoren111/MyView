@@ -16,7 +16,9 @@ All the functions will be integrated in our community - **Sesayu Street**.
 
 ### Components:
 
-Username and password fields, login button, sign up link
+* Username and password fields
+* Login button
+* Sign up link
 
 ### Functions
 
