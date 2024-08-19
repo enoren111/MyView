@@ -12,7 +12,7 @@ All the functions will be integrated in our community - **Sesayu Street**.
 
 # Components and Functions 🏘️
 
-## Login Screen
+## Login page
 
 ### Components:
 
@@ -24,6 +24,17 @@ All the functions will be integrated in our community - **Sesayu Street**.
 
 * For registered users: to log into the community using unique credentials.
 * For un-registered users: to register a new account by clicking the link.
+
+## Home page
+### Components:
+* Welcome message
+* Recent activities
+* Quick access buttons
+
+### Functions
+* View recent activities
+* Create new stories
+  
 
 
 
