@@ -10,7 +10,18 @@ easily in the different platforms with LLM being used to fill in the parts that 
 help with authoring episodes. 
 All the functions will be integrated in our community - **Sesayu Street**.
 
-# Panels and Functions 🏘️
+# Components and Functions 🏘️
+
+## Login Screen
+
+### Components:
+
+Username and password fields, login button, sign up link
+
+### Functions
+
+
+
 
 # Software Structure 💻
 <img alt="Structure of the App" src="/Pics/structure.png">
