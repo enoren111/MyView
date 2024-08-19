@@ -33,5 +33,7 @@ docker compose up --build -d
 > http://localhost:3000/login
 
 # Implementation (Selected) 💡
-
+<img alt="Home Page" src="/Pics/HomePage.png">
+<img alt="Story Panel" src="/Pics/StoryPanel.png">
+<img alt="Character Panel" src="/Pics/Character Panel.png">
 
