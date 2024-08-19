@@ -34,9 +34,11 @@ docker compose up --build -d
 
 # Implementation (Selected) 💡
 ### Home Page
-<img alt="Home Page" src="/Pics/HomePage.png">
+<img alt="Home Page" src="/Pics/HomePage.png">  
+
 ### Story Panel
 <img alt="Story Panel" src="/Pics/StoryPanel.png">
+
 ### Character Panel
 <img alt="Character Panel" src="/Pics/Character Panel.png">
 
