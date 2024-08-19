@@ -42,6 +42,9 @@ docker compose up --build -d
 ### Story Panel:
 <img alt="Story Panel" src="/Pics/StoryPanel.png">
 
+### Community Panel:
+<img alt="Community Panel" src="/Pics/Community Panel.png">
+
 
 
 
